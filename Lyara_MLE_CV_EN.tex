@@ -1,0 +1,95 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{parskip}
+
+% Styling and margins
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[left=1.1cm,right=1.1cm,top=0.8cm,bottom=0.5cm]{geometry}
+
+% Tables
+\usepackage{tabularx}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Lists formatting
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, itemsep=3pt, topsep=3pt, parsep=0pt, partopsep=0pt}
+
+% Titles format
+\usepackage{titlesec}
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{5pt}
+
+% Hyperlinks
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+% Icons
+\usepackage{fontawesome5}
+
+\begin{document}
+\pagestyle{empty}
+
+% Header
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\LARGE{\textbf{Maksim Lyara}} \\[2pt]
+\large{\textbf{ML Engineer / Data Scientist $\mid$ 2.5+ years of experience}} \\[3pt]
+\href{https://t.me/maxlyara1}{\raisebox{-0.05\height}\faTelegram \ @maxlyara1} \ $|$ \
+\href{mailto:maks.lyara@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ maks.lyara@gmail.com} \ $|$ \
+\href{tel:+79119600866}{\raisebox{-0.05\height}\faMobile \ +7 (911) 960 08 66} \ $|$ \
+\href{https://drive.google.com/drive/folders/1r9MWmdKT1crSFLui4-bHhgw5ErIWPB44?usp=sharing}{\raisebox{-0.05\height}\faCertificate \ Certificates} \ $|$ \
+\href{https://github.com/maxlyara1}{\raisebox{-0.05\height}\faGithub \ GitHub}
+\end{tabularx}
+\vspace{3mm}
+
+% Summary
+\section{Summary}
+Specialized in end-to-end Machine Learning engineering: from business requirements and deployments (Docker, Kubernetes) to production maintenance. Deep expertise in time series forecasting, supply chain optimization (MIP), RAG systems, and Computer Vision. Focused on delivering measurable business impact, robust ML systems, and scalable architecture.
+
+% Experience
+\section{Work Experience}
+
+\noindent\textbf{Data Scientist / ML Engineer, JSC Akrikhin} \hfill \textbf{March 2025 -- Present}
+\vspace{3pt}
+\begin{itemize}
+\item \textbf{Contract Campaign (S\&OP):} Developed a B2B sales forecasting system (CatBoost) for pharmacy chains. Automated the inference pipeline (Airflow), achieving a stable forecast accuracy of 96\%.
+\item \textbf{Inventory Optimization (Safety Stocks):} Designed a MIP model (PuLP) for Safety Stocks calculation. Incorporated complex business constraints, reducing frozen warehouse capital by 10\% while maintaining a 98\% service level.
+\item \textbf{LLM Agents \& RAG:} Extended the functionality of the corporate LLM platform (Langflow, FastAPI). Built RAG agents for precise search across corporate regulatory documentation with strict version control filtering. Integrated agents with internal services (Yandex Tracker, EQMS) supporting Server-Sent Events (SSE).
+\item \textbf{Data Mining:} Autonomously initiated and built a scalable competitive parsing architecture featuring bot-protection bypass and TTL caching for daily market monitoring.
+\item \textbf{Graph Analytics (Anti-Fraud):} Created an algorithm to detect "gray re-export" schemes based on B2B transaction graphs. Utilized graph traversals (DFS/BFS) in ClickHouse to track anomalous product supply chains.
+\item \textbf{Shelf Audit (CV):} Automated the shelf audit process for field representatives. Conducted fine-tuning of YOLO models for accurate detection and classification of a wide SKU assortment in pharmacies.
+\end{itemize}
+
+\vspace{6pt}
+\noindent\textbf{ML Engineer, Mars L.L.C.} \hfill \textbf{December 2023 -- December 2024}
+\vspace{3pt}
+\begin{itemize}
+\item \textbf{B2B Churn Prediction:} Built a retail outlet churn prediction model using geo-data (CatBoost), reducing distribution losses by 7\%.
+\item \textbf{Automation (CV \& NLP):} Developed a CV model for planogram compliance (Share of Shelf), improving shelf quality by 20\%. Deployed an NLP model for unstructured text analysis, accelerating data processing and reducing manual labeling.
+\end{itemize}
+
+\section{Selected Projects}
+\begin{itemize}
+    \item \textbf{\href{https://github.com/maxlyara1/AI_champ_OKKO}{AI Champ 2026 (Okko)} -- Video RAG:} Designed semantic search architecture. Pipeline: ASR transcription, multi-scale text chunking, hybrid search (BGE-M3 + Qdrant), and local reranking via Qwen LLM.
+    \item \textbf{\href{https://github.com/maxlyara1/hackathon-manager-work-quality}{TulaHack} -- Call Evaluation:} Developed an NLP service (FastAPI) for manager performance analysis: sentiment analysis, filler word detection, and dialog summarization.
+    \item \textbf{\href{https://github.com/maxlyara1/find_anomalies_hackathon}{RedLab Hack} -- Time Series:} Anomaly detection in multidimensional industrial telemetry sensor time series (3rd place).
+\end{itemize}
+
+\section{Education}
+\textbf{RANEPA, Bachelor's in Digital Economy} \hfill 2022 --- 2026 \\
+Institute of Economics, Mathematics and Information Technologies.
+
+\section{Skills}
+\begin{itemize}
+    \item \textbf{ML \& DS:} Python, CatBoost, PyTorch, SQL, Time Series, Computer Vision (YOLO), NLP (BERT), Graphs
+    \item \textbf{LLMs:} RAG (Qdrant, TEI, hybrid search), Agents (Langflow, FastAPI), YandexGPT, Qwen, SSE
+    \item \textbf{MLOps \& Data:} Airflow, ClickHouse, PostgreSQL, Kafka, Kubernetes, Yandex DataSphere, MinIO, Docker, Git
+\end{itemize}
+\enlargethispage{2\baselineskip}
+\end{document}
