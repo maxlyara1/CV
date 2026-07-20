@@ -1,0 +1,94 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{parskip}
+
+% Styling and margins
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[left=1.1cm,right=1.1cm,top=0.8cm,bottom=0.5cm]{geometry}
+
+% Tables
+\usepackage{tabularx}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Lists formatting
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, itemsep=3pt, topsep=3pt, parsep=0pt, partopsep=0pt}
+
+% Titles format
+\usepackage{titlesec}
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{5pt}
+
+% Hyperlinks
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+% Icons
+\usepackage{fontawesome5}
+
+\begin{document}
+\pagestyle{empty}
+
+% Header
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\LARGE{\textbf{Ляра Максим Витальевич}} \\[2pt]
+\large{\textbf{ML Engineer / Data Scientist $\mid$ Опыт: 2.5+ года}} \\[3pt]
+\href{https://t.me/maxlyara1}{\raisebox{-0.05\height}\faTelegram \ @maxlyara1} \ $|$ \
+\href{mailto:maks.lyara@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ maks.lyara@gmail.com} \ $|$ \
+\href{tel:+79119600866}{\raisebox{-0.05\height}\faMobile \ +7 (911) 960 08 66} \ $|$ \
+\href{https://drive.google.com/drive/folders/1r9MWmdKT1crSFLui4-bHhgw5ErIWPB44?usp=sharing}{\raisebox{-0.05\height}\faCertificate \ Сертификаты} \ $|$ \
+\href{https://github.com/maxlyara1}{\raisebox{-0.05\height}\faGithub \ GitHub}
+\end{tabularx}
+\vspace{3mm}
+
+% Summary
+\section{Обо мне}
+Специализируюсь на полном цикле разработки ML-решений: от сбора бизнес-требований и развертывания (Docker, Kubernetes) до поддержки в промышленной эксплуатации. Экспертиза в прогнозировании временных рядов, оптимизации цепей поставок (MIP), RAG-системах и компьютерном зрении. Ориентируюсь на измеримый бизнес-эффект, надежность ML-систем и масштабируемую архитектуру.
+
+% Experience
+\section{Опыт работы}
+
+\noindent\textbf{Data Scientist / ML Engineer, АО «Акрихин»} \hfill \textbf{Март 2025 -- н.в.}
+\vspace{3pt}
+\begin{itemize}
+\item \textbf{Контрактная кампания (S\&OP):} Разработал систему прогнозирования B2B-продаж (CatBoost) для аптечных сетей. Автоматизировал запуск моделей и расчет прогнозов (Airflow), обеспечив стабильную точность 96\%.
+\item \textbf{Оптимизация запасов (Safety Stocks):} Спроектировал MIP-модель (PuLP) для расчета страховых запасов. Учет сложных бизнес-ограничений позволил снизить замороженный капитал на 10\% при поддержании уровня сервиса в 98\%.
+\item \textbf{LLM-агенты и RAG:} Расширял функционал корпоративной LLM-платформы (Langflow, FastAPI). Создал RAG-агентов для поиска по нормативной документации с учетом версионирования. Реализовал интеграцию с внутренними сервисами (Yandex Tracker, EQMS) с поддержкой потоковой передачи ответов (SSE).
+\item \textbf{Data Mining:} Инициировал и разработал масштабируемую архитектуру конкурентного парсинга с обходом блокировок и кэшированием (TTL) для ежедневного мониторинга рынка.
+\item \textbf{Аналитика графов (Антифрод):} Создал алгоритм выявления «серого реэкспорта» по графу B2B-транзакций. Использовал обходы DFS/BFS в ClickHouse для отслеживания аномальных товарных цепочек.
+\item \textbf{Аудит выкладки (CV):} Автоматизировал аудит полок для фармпредставителей. Проводил дообучение (fine-tuning) YOLO-моделей для детекции и классификации широкого ассортимента SKU в аптеках.
+\end{itemize}
+
+\vspace{6pt}
+\noindent\textbf{ML Engineer, Mars L.L.C.} \hfill \textbf{Декабрь 2023 -- Декабрь 2024}
+\vspace{3pt}
+\begin{itemize}
+\item \textbf{Прогнозирование B2B-оттока:} Разработал модель прогнозирования оттока торговых точек по гео-данным (CatBoost), сократив потери дистрибуции на 7\%.
+\item \textbf{CV \& NLP автоматизация:} Разработал CV-модель контроля доли полки (Share of Shelf), улучшив качество выкладки на 20\%. Внедрил NLP-модель для анализа неструктурированных текстов, ускорив обработку данных и сократив ручную разметку.
+\end{itemize}
+
+\section{Личные проекты}
+\begin{itemize}
+    \item \textbf{\href{https://github.com/maxlyara1/AI_champ_OKKO}{AI ЧЕМП 2026 (Okko)} -- RAG по видео:} Система семантического поиска: распознавание речи, разбиение текста на перекрывающиеся фрагменты с использованием окон различного размера, комбинированный поиск (BGE-M3 + Qdrant) и локальное переранжирование (Qwen).
+    \item \textbf{\href{https://github.com/maxlyara1/hackathon-manager-work-quality}{TulaHack} -- Оценка звонков:} Разработал NLP-сервис (FastAPI) для анализа работы менеджеров: сентимент-анализ, выявление слов-паразитов и суммаризация диалогов.
+    \item \textbf{\href{https://github.com/maxlyara1/find_anomalies_hackathon}{RedLab Hack} -- Time Series:} Детектор аномалий во временных рядах телеметрии промышленных датчиков (3-е место).
+\end{itemize}
+
+\section{Образование}
+\textbf{РАНХиГС, «Цифровая экономика»} \hfill 2022 --- 2026 \\
+Институт экономики, математики и информационных технологий.
+
+\section{Навыки}
+\begin{itemize}
+    \item \textbf{ML \& DS:} Python, CatBoost, PyTorch, SQL, Time Series, Computer Vision (YOLO), NLP (BERT), Graphs
+    \item \textbf{LLMs:} RAG (Qdrant, TEI, комбинированный поиск), ИИ-ассистенты (Langflow, FastAPI), YandexGPT, Qwen, SSE
+    \item \textbf{MLOps \& Data:} Airflow, ClickHouse, PostgreSQL, Kafka, Kubernetes, Yandex DataSphere, MinIO, Docker, Git
+\end{itemize}
+\enlargethispage{2\baselineskip}
+\end{document}
