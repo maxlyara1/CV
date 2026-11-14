@@ -1,0 +1,146 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeXOff]{Arial}
+\setsansfont[Ligatures=TeXOff]{Arial}
+\newfontfamily\cyrillicfont[Ligatures=TeXOff]{Arial}
+\newfontfamily\cyrillicfontsf[Ligatures=TeXOff]{Arial}
+
+\usepackage{geometry}
+\geometry{a4paper, left=1.06cm, right=1.06cm, top=0.98cm, bottom=0.98cm}
+
+\usepackage{xcolor}
+\definecolor{accent}{RGB}{15, 44, 89}
+\definecolor{muted}{RGB}{82, 94, 110}
+\definecolor{rulecolor}{RGB}{190, 200, 214}
+
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[unicode, pdfusetitle]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=accent,
+    linkcolor=accent,
+    pdfauthor={Maksim Lyara},
+    pdftitle={Maksim Lyara - ML / AI Systems Engineer CV}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\emergencystretch=2.6em
+\hbadness=3500
+\hyphenpenalty=1800
+\exhyphenpenalty=400
+
+% Straight ASCII double quote macro preserving trailing spaces
+\providecommand{\dq}{}
+\renewcommand{\dq}{\symbol{34}}
+\newcommand{\sep}{\hspace{0.45em}\textbar\hspace{0.45em}}
+
+% Body font sizing (9.55pt / 11.65pt leading for airy executive readability)
+\newcommand{\bodyfont}{\fontsize{9.55pt}{11.65pt}\selectfont}
+
+% Muted stack subline tightly bound to its parent bullet (Gestalt proximity)
+\newcommand{\tech}[1]{%
+  \par\nopagebreak\vspace{0.95pt}%
+  {\fontsize{8.65pt}{10.25pt}\selectfont\color{muted}\textbf{Stack:} #1}%
+}
+
+% Section formatting
+\titleformat{\section}
+  {\fontsize{10.5pt}{12.4pt}\selectfont\bfseries\color{accent}}
+  {}{0em}{\MakeUppercase}[\vspace{-2.4pt}{\color{rulecolor}\titlerule[0.65pt]}]
+\titlespacing*{\section}{0pt}{7.2pt}{3.6pt}
+
+% Role header helper
+\newcommand{\roleheader}[3]{%
+  \noindent{\fontsize{10.0pt}{12.0pt}\selectfont\textbf{#1}\sep\textbf{\color{accent}#2} \hfill \textbf{\color{muted}#3}}\par\vspace{2.1pt}%
+}
+
+% Airy structured bullet list with clear separation between blocks
+\setlist[itemize]{
+  leftmargin=1.08em,
+  label={\color{accent}\tiny\raisebox{0.3ex}{$\bullet$}},
+  itemsep=3.9pt,
+  topsep=1.1pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+\bodyfont
+
+% ==================== HEADER ====================
+\begin{center}
+  {\fontsize{17.8pt}{20.6pt}\selectfont\textbf{Maksim Lyara}}\\[3.0pt]
+  {\fontsize{10.25pt}{12.3pt}\selectfont\textbf{\color{accent}ML / AI Systems Engineer (AI Agents, Hybrid RAG, Production ML \& Optimization)}}\\[3.6pt]
+  {\fontsize{9.4pt}{11.3pt}\selectfont
+    Moscow\sep\href{https://t.me/maxlyara1}{Telegram: @maxlyara1}\sep\href{mailto:maks.lyara@gmail.com}{maks.lyara@gmail.com}\sep\href{tel:+79119600866}{+7 (911) 960-08-66}\sep\href{https://github.com/maxlyara1}{github.com/maxlyara1}
+  }
+\end{center}
+\vspace{-2.5pt}
+
+% ==================== SUMMARY ====================
+\section{Summary}
+ML / AI Systems Engineer with 3 years of commercial experience in Pharma and FMCG. Designs and deploys production AI agent systems, hybrid RAG search, demand forecasting, and mathematical optimization systems \mbox{end-to-end} - from business problem formulation and data pipelines to \mbox{fault-tolerant} backend services and automated quality evaluation.
+
+% ==================== EXPERIENCE ====================
+\section{Work Experience}
+
+\roleheader{ML / AI Systems Engineer}{JSC Akrikhin}{March 2025 - Present}
+\begin{itemize}
+  \item \textbf{Enterprise AI Agents \& Platform Core Modules (152-FZ):} Launched \textbf{10+ domain AI agents} within the unified corporate web interface (\mbox{role-scoped} PPTX/PDF sales presentation builder, \mbox{field-force} copilot, operational agents). Built shared reliability and compliance modules for the platform: seamless failover across cloud LLM providers, \mbox{real-time} PII redaction for 152-FZ compliance, and automated \mbox{LLM-as-a-Judge} quality evaluation.
+  \tech{FastAPI, \mbox{LangGraph}, MCP, PostgreSQL, Natasha, Cloud LLM APIs (Qwen, DeepSeek, YandexGPT)}
+
+  \item \textbf{Manufacturing \& Quality AI Agents (RAG, Text-to-SQL):} On top of the shared agent platform, launched \textbf{4 agents} across \textbf{2,250 manufacturing SOPs} (208k chunks) and quality incident records with validated SQL generation. Achieved \textbf{98.5\%} QA accuracy on the \mbox{quality-assurance} benchmark with \textbf{0.12s} filtered hybrid search latency.
+  \tech{Docling, Qdrant, \mbox{Qwen3-Embedding}, BM25, \mbox{Cross-Encoder}, sqlglot}
+
+  \item \textbf{Retail Pharmacy Price Monitoring \& Analytics:} Built daily price collection from scratch across \textbf{89 cities} via pharmacy aggregators and chain websites (\textbf{covering 58 pharmacy chains}), normalizing dosage and pack catalogs. To prevent frequent site layout changes from causing multi-day gaps in price time series or constant manual parser fixes, paired standard HTML parsing with automatic fallback to a low-cost LLM when selectors break (\textbf{97.8\% completeness} at \textbf{3x lower token cost} than pure LLM scraping), feeding \textbf{3 analytics AI agents}.
+  \tech{Python, Playwright, Firecrawl, ClickHouse}
+
+  \item \textbf{Safety Stock Optimization (S\&OP):} Developed a \mbox{safety-stock} system across \textbf{195 SKUs} combining integer optimization and gradient boosting with probability calibration. In a \mbox{12-month} backtest, cut \textbf{\mbox{out-of-stock} (stockout) incidents by 24.2\%} while \textbf{freeing up 14.8\% of warehouse inventory} (achieving a \textbf{13\% reduction in planned safety stock} during the S\&OP pilot without \mbox{service-level} loss).
+  \tech{\mbox{python-mip} (CBC), CatBoost, Optuna, ClickHouse, DataLens}
+
+  \item \textbf{Data \& ML Pipeline Architecture (Airflow 3):} Refactored the orchestration repository and adapted scheduled data and ML pipelines to Airflow 3, introducing unified project configuration, failure alerting, and structured analytical \mbox{data-mart} builds.
+  \tech{Airflow 3, ClickHouse, PostgreSQL, Kafka (Debezium CDC), Docker}
+
+  \item \textbf{Computer Vision for Pharmacy Shelf Audit:} Built the \mbox{pre-labeling} and annotation \mbox{quality-control} workflow in Label Studio, \mbox{fine-tuned} and benchmarked package detectors (\textbf{YOLOv12} vs.\ production \textbf{YOLOv8}), and \mbox{co-designed} the \mbox{two-stage} \mbox{shelf-recognition} pipeline with \mbox{metric-learning} SKU classification (\textbf{DINOv2}).
+  \tech{PyTorch, YOLOv8, YOLOv12, DINOv2, Label Studio, MinIO (S3)}
+\end{itemize}
+
+\vspace{3.8pt}
+\roleheader{ML Engineer}{Mars L.L.C.}{December 2023 - December 2024}
+\begin{itemize}
+  \item \textbf{Sales Target Setting \& B2B Outlet Retention:} Built an internal web service automating \mbox{time-series} forecasting and target setting across \textbf{6 commercial KPIs} for field sales teams to replace manual Excel planning. Deployed a geospatial and transactional B2B outlet churn model, \textbf{reducing active outlet churn by 7\%}.
+  \tech{Python, CatBoost, SHAP, Streamlit}
+
+  \item \textbf{Shelf Compliance Vision \& Catalog Structuring:} Fine-tuned a \mbox{shelf-display} compliance and spoofed \mbox{photo-report} detector on field store audits (\textbf{F1 = 0.92}, \textbf{+20\% display compliance}). Deployed a neural language model extracting structured product attributes from raw catalog titles.
+  \tech{PyTorch, \mbox{EfficientNet-B3}, Albumentations, BERT}
+\end{itemize}
+
+% ==================== PROJECTS ====================
+\section{Open-Source Project}
+\begin{itemize}
+  \item \textbf{\href{https://github.com/maxlyara1/multimodal-video-search}{Multimodal Video-RAG}:} Semantic video and timestamped scene search across speech transcripts, \mbox{on-screen} text, and visual frames. \mbox{Query-modality} routing and \mbox{cross-modal} score fusion increased \textbf{Hit@1 from 66\% to 90\%} (\textbf{Hit@3 = 96\%}).
+  \tech{FastAPI, Qdrant, Whisper Turbo, EasyOCR, BLIP, \mbox{Qwen3-Embedding}}
+\end{itemize}
+
+% ==================== EDUCATION ====================
+\section{Education}
+\noindent\textbf{ITMO University}\sep M.Sc. in Artificial Intelligence \& Behavioral Economics \hfill \textbf{\color{muted}2026 - 2028}\par
+\noindent Portfolio Competition Winner. Research: \mbox{agent-based} and econometric modeling of media markets under regulatory constraints.\par\vspace{3.0pt}
+\noindent\textbf{RANEPA (Moscow)}\sep B.Sc. in Digital Economics, IEMIT \hfill \textbf{\color{muted}2022 - 2026}\par
+\noindent GPA: 4.37/5.0. 3rd Place, RedLab Industrial Hackathon on \mbox{Time-Series} Anomaly Detection.
+
+% ==================== SKILLS ====================
+\section{Technical Skills}
+{\fontsize{8.35pt}{10.1pt}\selectfont
+\begin{itemize}[itemsep=1.9pt, topsep=0.7pt]
+  \item \textbf{LLM \& AI Agents:} FastAPI, \mbox{LangGraph}, MCP, Qdrant, BM25, \mbox{Cross-Encoder}, Docling, Natasha, \mbox{Text-to-SQL}, Qwen, DeepSeek, YandexGPT
+  \item \textbf{ML \& Optimization:} Python, PyTorch, CatBoost, LightGBM, \mbox{scikit-learn}, Optuna, \mbox{python-mip} (CBC), Time Series, Calibration, YOLO, DINOv2
+  \item \textbf{Infra \& Languages:} Airflow 3, ClickHouse, PostgreSQL, Kafka (CDC), MinIO, Docker, Git, Playwright, Label Studio; English (B2), Russian (Native)
+\end{itemize}
+}
+
+\end{document}

@@ -1,0 +1,146 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[english,russian]{babel}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeXOff]{Arial}
+\setsansfont[Ligatures=TeXOff]{Arial}
+\newfontfamily\cyrillicfont[Ligatures=TeXOff]{Arial}
+\newfontfamily\cyrillicfontsf[Ligatures=TeXOff]{Arial}
+
+\usepackage{geometry}
+\geometry{a4paper, left=1.05cm, right=1.05cm, top=0.95cm, bottom=0.95cm}
+
+\usepackage{xcolor}
+\definecolor{accent}{RGB}{15, 44, 89}
+\definecolor{muted}{RGB}{82, 94, 110}
+\definecolor{rulecolor}{RGB}{190, 200, 214}
+
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[unicode, pdfusetitle]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=accent,
+    linkcolor=accent,
+    pdfauthor={Ляра Максим Витальевич},
+    pdftitle={Ляра Максим Витальевич - ML / AI Systems Engineer CV}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\emergencystretch=2.6em
+\hbadness=3500
+\hyphenpenalty=800
+\exhyphenpenalty=400
+
+% Straight ASCII double quote macro preserving trailing spaces
+\providecommand{\dq}{}
+\renewcommand{\dq}{\symbol{34}}
+\newcommand{\sep}{\hspace{0.45em}\textbar\hspace{0.45em}}
+
+% Body font sizing (9.4pt / 11.4pt leading for airy executive readability)
+\newcommand{\bodyfont}{\fontsize{9.4pt}{11.4pt}\selectfont}
+
+% Muted stack subline tightly bound to its parent bullet (Gestalt proximity)
+\newcommand{\tech}[1]{%
+  \par\nopagebreak\vspace{0.9pt}%
+  {\fontsize{8.55pt}{10.1pt}\selectfont\color{muted}\textbf{Стек:} #1}%
+}
+
+% Section formatting
+\titleformat{\section}
+  {\fontsize{10.35pt}{12.2pt}\selectfont\bfseries\color{accent}}
+  {}{0em}{\MakeUppercase}[\vspace{-2.5pt}{\color{rulecolor}\titlerule[0.65pt]}]
+\titlespacing*{\section}{0pt}{5.5pt}{2.6pt}
+
+% Role header helper
+\newcommand{\roleheader}[3]{%
+  \noindent{\fontsize{9.9pt}{11.9pt}\selectfont\textbf{#1}\sep\textbf{\color{accent}#2} \hfill \textbf{\color{muted}#3}}\par\vspace{1.8pt}%
+}
+
+% Airy structured bullet list with clear separation between blocks
+\setlist[itemize]{
+  leftmargin=1.08em,
+  label={\color{accent}\tiny\raisebox{0.3ex}{$\bullet$}},
+  itemsep=2.7pt,
+  topsep=0.8pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+\bodyfont
+
+% ==================== HEADER ====================
+\begin{center}
+  {\fontsize{17.4pt}{20.2pt}\selectfont\textbf{Ляра Максим Витальевич}}\\[2.8pt]
+  {\fontsize{10.1pt}{12.1pt}\selectfont\textbf{\color{accent}ML / AI Systems Engineer (AI-агенты, гибридный RAG, прогнозирование и оптимизация)}}\\[3.4pt]
+  {\fontsize{9.3pt}{11.2pt}\selectfont
+    Москва\sep\href{https://t.me/maxlyara1}{Telegram: @maxlyara1}\sep\href{mailto:maks.lyara@gmail.com}{maks.lyara@gmail.com}\sep\href{tel:+79119600866}{+7 (911) 960-08-66}\sep\href{https://github.com/maxlyara1}{github.com/maxlyara1}
+  }
+\end{center}
+\vspace{-2.6pt}
+
+% ==================== SUMMARY ====================
+\section{Профиль}
+ML / AI Systems Engineer с 3 годами коммерческого опыта в фармацевтике и FMCG. Разрабатываю и вывожу в промышленную эксплуатацию корпоративных AI-агентов, системы гибридного поиска (RAG), модели прогнозирования спроса и математической оптимизации - от постановки задачи и пайплайнов данных до отказоустойчивых сервисов и автоматического контроля качества.
+
+% ==================== EXPERIENCE ====================
+\section{Опыт работы}
+
+\roleheader{ML / AI Systems Engineer}{АО \dq{}Акрихин\dq{}}{Март 2025 - настоящее время}
+\begin{itemize}
+  \item \textbf{Корпоративные AI-агенты и развитие платформы (152-ФЗ):} Вывел в работу \textbf{10+ профильных AI-агентов} в едином корпоративном веб-интерфейсе (подготовка презентаций PPTX/PDF по данным продаж с ролевым доступом, поддержка полевых команд, операционные задачи). Разработал общие модули надежности и безопасности платформы: бесшовное переключение между облачными LLM-провайдерами при сбоях, обезличивание персональных данных под 152-ФЗ и автоматический контроль качества ответов.
+  \tech{FastAPI, LangGraph, MCP, PostgreSQL, Natasha, LLM APIs (Yandex Cloud, Qwen, DeepSeek)}
+
+  \item \textbf{AI-агенты для производства и службы качества:} На базе общей агентной платформы внедрил \textbf{4 агента} по \textbf{2~250 производственным регламентам} (208 тыс. фрагментов) и базе отклонений с генерацией проверенных SQL-запросов. Точность ответов \textbf{98.5\%} на выборке службы качества при гибридном поиске с фильтрацией за \textbf{0.12~с}.
+  \tech{Docling, Qdrant, \mbox{Qwen3-Embedding}, BM25, \mbox{Cross-Encoder}, sqlglot}
+
+  \item \textbf{Мониторинг и аналитика розничных цен аптек:} С нуля построил ежедневный сбор цен в \textbf{89 городах} через аптечные агрегаторы и сайты сетей (\textbf{охват 58 аптечных сетей}), нормализовал справочник дозировок и упаковок. Чтобы частая смена верстки сайтов не создавала многодневных пропусков во временных рядах и не отвлекала на ручную починку парсеров, дополнил разбор HTML резервным извлечением через дешевую LLM при сбое селекторов (\textbf{полнота 97.8\%} при \textbf{3-кратной экономии токенов} к чистому LLM-парсингу), подключив витрины к \textbf{3 аналитическим AI-агентам}.
+  \tech{Python, Playwright, Firecrawl, ClickHouse}
+
+  \item \textbf{Оптимизация страховых запасов (S\&OP):} Разработал систему расчета нормативов запаса по \textbf{195 препаратам} на стыке целочисленной оптимизации и градиентного бустинга с калибровкой вероятностей. На годовом ретротесте система сократила \textbf{дефектуру на 24.2\%} при \textbf{высвобождении 14.8\% складских запасов}, а на пилоте в цикле S\&OP снизила плановый норматив \textbf{на 13\%} без потери доступности товара.
+  \tech{\mbox{python-mip} (CBC), CatBoost, Optuna, ClickHouse, DataLens}
+
+  \item \textbf{Архитектура и надежность пайплайнов данных (Airflow 3):} Провел архитектурный рефакторинг репозитория оркестрации и адаптировал регулярные пайплайны данных и ML-расчетов под Airflow 3: ввел единую систему конфигурации проектов, настроил мониторинг и алертинг сбоев, упорядочил сборку аналитических витрин.
+  \tech{Airflow 3, ClickHouse, PostgreSQL, Kafka (Debezium CDC), Docker}
+
+  \item \textbf{Компьютерное зрение для аудита аптечной полки:} Выстроил пайплайн автопредразметки и контроля качества разметки в Label Studio, провел дообучение и сравнение детекторов упаковок (\textbf{YOLOv12} относительно продового \textbf{YOLOv8}) и проработал архитектуру двухэтапного распознавания выкладки с векторной классификацией позиций (\textbf{DINOv2}).
+  \tech{PyTorch, YOLOv8, YOLOv12, DINOv2, Label Studio, MinIO (S3)}
+\end{itemize}
+
+\vspace{3.4pt}
+\roleheader{ML Engineer}{Mars L.L.C.}{Декабрь 2023 - Декабрь 2024}
+\begin{itemize}
+  \item \textbf{Постановка целей по продажам и удержание клиентов:} Разработал внутренний веб-сервис прогнозирования и расчета планов по \textbf{6 коммерческим KPI} для полевых команд взамен ручных сводок в Excel. Внедрил модель прогноза оттока розничных B2B-точек по геоданным и истории заказов, \textbf{снизив отток активной базы на 7\%}.
+  \tech{Python, CatBoost, SHAP, Streamlit}
+
+  \item \textbf{Контроль полочной выкладки и обработка каталога:} Дообучил модель проверки выкладки товаров и выявления поддельных фотоотчетов полевых сотрудников (\textbf{F1 = 0.92}, \textbf{+20\% к соблюдению стандартов выкладки}). Внедрил языковую модель для автоматического извлечения характеристик товаров из неструктурированных наименований.
+  \tech{PyTorch, \mbox{EfficientNet-B3}, Albumentations, BERT}
+\end{itemize}
+
+% ==================== PROJECTS ====================
+\section{Открытый проект}
+\begin{itemize}
+  \item \textbf{\href{https://github.com/maxlyara1/multimodal-video-search}{Multimodal Video-RAG}:} Система смыслового поиска видео и сцен с таймкодами по речи, тексту в кадре и изображению. Маршрутизация запроса и объединение оценок модальностей повысили \textbf{Hit@1 с 66\% до 90\%} (\textbf{Hit@3 = 96\%}).
+  \tech{FastAPI, Qdrant, Whisper Turbo, EasyOCR, BLIP, \mbox{Qwen3-Embedding}}
+\end{itemize}
+
+% ==================== EDUCATION ====================
+\section{Образование}
+\noindent\textbf{Университет ИТМО}\sep Магистратура \dq{}Искусственный интеллект и поведенческая экономика\dq{} \hfill \textbf{\color{muted}2026 - 2028}\par
+\noindent Победитель конкурса портфолио. НИР: агентное моделирование и эконометрика медиарынков с учетом регуляторики.\par\vspace{2.8pt}
+\noindent\textbf{РАНХиГС (Москва)}\sep Бакалавриат \dq{}Цифровая экономика\dq{}, ИЭМИТ \hfill \textbf{\color{muted}2022 - 2026}\par
+\noindent Средний балл: 4.37/5.0. Призер индустриального хакатона RedLab по поиску аномалий во временных рядах (3 место).
+
+% ==================== SKILLS ====================
+\section{Навыки}
+{\fontsize{8.35pt}{10.1pt}\selectfont
+\begin{itemize}[itemsep=1.8pt, topsep=0.7pt]
+  \item \textbf{LLM и AI-агенты:} FastAPI, LangGraph, MCP, Qdrant, BM25, \mbox{Cross-Encoder}, Docling, Natasha, \mbox{Text-to-SQL}, Qwen, DeepSeek, YandexGPT
+  \item \textbf{ML и оптимизация:} Python, PyTorch, CatBoost, LightGBM, \mbox{scikit-learn}, Optuna, \mbox{python-mip} (CBC), Time Series, Calibration, YOLO, DINOv2
+  \item \textbf{Инфраструктура и языки:} Airflow 3, ClickHouse, PostgreSQL, Kafka (CDC), MinIO, Docker, Git, Playwright, Label Studio; Русский (родной), Английский (B2)
+\end{itemize}
+}
+
+\end{document}
